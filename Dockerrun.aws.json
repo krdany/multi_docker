@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerVersion" : 2,
+    "containerDefinitions" : [
+        {
+            "name" : "client",
+            "image" : "krdanny/multi-client",
+            "hostname" : "client",
+            "essential" : false
+        },{
+            "name" : "server",
+            "image" : "krdanny/multi-server",
+            "hostname" : "api",
+            "essential" : false
+        },{
+            "name" : "worker",
+            "image" : "krdanny/multi-worker",
+            "hostname" : "worker",
+            "essential" : false
+        },{
+            "name" : "nginx",
+            "image" : "krdanny/multi-nginx",
+            "hostname" : "nginx",
+            "essential" : true,
+            "postMappings" : [
+                {
+                    "hostPort" : 80,
+                    "containerPort" : 80
+                }
+            ],
+            "links" : ["server", "client"]
+        }
+    ]
+}

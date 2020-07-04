@@ -11,7 +11,7 @@ script:
 after_success:
   - docker build -t krdanny/multi-client ./client
   - docker build -t krdanny/multi-server ./server
-  - docker build -t dakrdannynny/multi-worker ./worker
+  - docker build -t krdanny/multi-worker ./worker
   - docker build -t krdanny/multi-nginx ./nginx
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin

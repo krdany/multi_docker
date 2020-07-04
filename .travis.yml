@@ -20,3 +20,4 @@ after_success:
   -docker push danny/multi-server
   -docker push danny/multi-worker
   -docker push danny/multi-nginx
+  

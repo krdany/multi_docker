@@ -9,14 +9,14 @@ script:
   - docker run -e CI=true danny/react-test npm test 
 
 after_success:
-  - docker buiild -t danny/multi-client ./client
-  - docker build -t danny/multi-server ./server
-  - docker build -t danny/multi-worker ./worker
-  - docker build -t danny/multi-nginx ./nginx
+  - docker build -t krdanny/multi-client ./client
+  - docker build -t krdanny/multi-server ./server
+  - docker build -t dakrdannynny/multi-worker ./worker
+  - docker build -t krdanny/multi-nginx ./nginx
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   
-  - docker push danny/multi-client
-  - docker push danny/multi-server
-  - docker push danny/multi-worker
-  - docker push danny/multi-nginx
+  - docker push krdanny/multi-client
+  - docker push krdanny/multi-server
+  - docker push krdanny/multi-worker
+  - docker push krdanny/multi-nginx

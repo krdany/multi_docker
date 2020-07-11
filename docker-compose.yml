@@ -39,7 +39,7 @@ services:
       dockerfile: 'Dockerfile.Dev'
       context: './client'
     volumes:
-      - app/node_modules
+      - /app/node_modules
       - ./client:/app
   worker:
     depends_on:
